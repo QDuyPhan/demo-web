@@ -128,3 +128,57 @@
     @apply font-sans;
   }
 }
+/* ===== Demo site brand tokens (đổi màu thương hiệu tại đây) ===== */
+@theme inline {
+  --color-navy: #2f5e87;
+  --color-navy-dark: #1f4364;
+  --color-gold: #b8892c;
+  --color-gold-light: #e8c766;
+  --color-cream: #f8f6ef;
+  --font-display: var(--font-playfair), var(--font-han), Georgia, serif;
+  --font-body: var(--font-roboto), var(--font-han), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+.pattern-bg {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 0 38%, rgb(184 137 44 / 0.07) 39% 40%, transparent 41%),
+    radial-gradient(circle at 0 0, transparent 0 38%, rgb(184 137 44 / 0.07) 39% 40%, transparent 41%);
+  background-size: 120px 120px, 120px 120px;
+}
+
+/* ===== Hiệu ứng nhẹ: hiện dần khi cuộn + banner phóng to chậm ===== */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+.js-reveal [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.animate-kenburns {
+  animation: kenburns 6s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns { animation: none; }
+  .js-reveal [data-reveal] { opacity: 1; transform: none; transition: none; }
+}
+
+[data-full] {
+  cursor: zoom-in;
+}

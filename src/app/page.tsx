@@ -1,9 +1,26 @@
+import { Header } from "@/components/sites/demo/Header";
+import { FloatingContact, HeroSlider, ImageZoom, ScrollReveal } from "@/components/sites/demo/Interactive";
+import { About, Contact, CtaBanner, Footer, Gallery, News, Pricing, Products, Services } from "@/components/sites/demo/Sections";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <p className="text-muted-foreground">
-        Clone target not yet built. Run <code className="font-mono text-foreground">/clone-website</code> to start.
-      </p>
-    </main>
+    <>
+      <Header />
+      <main>
+        <HeroSlider />
+        <About />
+        <Products />
+        <Pricing />
+        <Services />
+        <Gallery />
+        <News />
+        <CtaBanner />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingContact />
+      <ScrollReveal />
+      <ImageZoom />
+    </>
   );
 }
